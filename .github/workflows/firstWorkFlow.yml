@@ -7,11 +7,22 @@ jobs:
 
 
   firstjob:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: firstJob script
-        shell: cmd
+        shell: bash
         run: echo Hello World! This is the first job
+      - name: checkout the repository
+        uses: action/checkout@v3
+      - name: greet a user with the hello world function
+        id: greetings
+        uses: actions/hello-world-javascript-action@main
+        with:
+          who-to-greet: 'Paul'
+      - name: the greeting time
+        run: |
+          echo "The time of the greeting was at: ${{ steps.greetings.outputs.time }}"
+        
 
   secondJob:
     runs-on: ubuntu-latest
