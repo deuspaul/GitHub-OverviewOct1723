@@ -13,10 +13,10 @@ jobs:
         shell: bash
         run: echo Hello World! This is the first job
       - name: checkout the repository
-        uses: action/checkout@v3
+        uses: actions/checkout@v3
       - name: greet a user with the hello world function
         id: greetings
-        uses: action/hello-world-javascript-action@main
+        uses: actions/hello-world-javascript-action@main
         with:
           who-to-greet: 'Paul'
       - name: the greeting time
